@@ -11,7 +11,7 @@ const config = {
 }
 
 api.post('/webhook', middleware(config), (req, res) => {
-  client.replyMessage(event.replyToken, {
+  Client.replyMessage(event.replyToken, {
     type: 'text',
     text: 'I cannot leave a 1-on-1 chat!',
   })
