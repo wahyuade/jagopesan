@@ -1,5 +1,6 @@
 const express = require('express')
 const middleware = require('@line/bot-sdk').middleware
+const Client = require('@line/bot-sdk').Client
 
 const app = express()
 const api = express.Router()
@@ -10,7 +11,10 @@ const config = {
 }
 
 api.post('/webhook', middleware(config), (req, res) => {
-  console.log(req.body)
+  client.replyMessage(event.replyToken, {
+    type: 'text',
+    text: 'I cannot leave a 1-on-1 chat!',
+  })
   res.json(req.body.events)
 })
 
