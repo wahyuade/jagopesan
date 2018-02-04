@@ -1,0 +1,15 @@
+{
+  "name": "jagopesan",
+  "version": "1.0.0",
+  "description": "API Server jagopesan.com",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Wahyu Ade Sasongko",
+  "license": "ISC",
+  "dependencies": {
+    "@line/bot-sdk": "^5.2.0",
+    "express": "^4.16.2"
+  }
+}
