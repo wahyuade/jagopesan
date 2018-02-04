@@ -14,10 +14,15 @@ const client = new Client(config)
 
 api.post('/webhook', middleware(config), (req, res) => {
   var event = req.body.events
-  client.replyMessage(event.replyToken, {
-    type: 'text',
-    text: 'I cannot leave a 1-on-1 chat!',
-  })
+
+  try{
+    client.replyMessage(event.replyToken, {
+      type: 'text',
+      text: 'I cannot leave a 1-on-1 chat!',
+    })
+  }catch(e){
+    console.log(e)
+  }
   res.json(event)
 })
 
