@@ -1,15 +1,17 @@
 const express = require('express')
-const https = require('https')
+const middleware = require('@line/bot-sdk').middleware
 
 const app = express()
 const api = express.Router()
 
-api.post('/webhook', (req, res) => {
-  res.json({})
-})
+const config = {
+  channelAccessToken: 'UmCX9fn/s2wC0tQCYHSkvNeSk2LhSJwPPeu0rt2b7K5PUhHoVOH6f/fRM3Y8smyz0MW6zf842sIUXheOh/TX0bfZXNtTI9OLqRenVgVotcaxKtiXFryPw0GGphvH9zRG6viBHVcnk50TdFPLonaEOAdB04t89/1O/w1cDnyilFU=',
+  channelSecret: '1545c8836bc3ad1e9d0bd973a95d4c3a'
+}
 
-app.get('/', (req, res) => {
-  res.json({message:'mantab'})
+api.post('/webhook', middleware(config), (req, res) => {
+  console.log(req.body)
+  res.json(req.body.events)
 })
 
 app.use('/api', api)
